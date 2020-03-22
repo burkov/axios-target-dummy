@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
+    "reformat": "prettier --write \"./**/*.{ts,tsx,js,jsx,json}\"",
     "start": "nodemon --watch src/* --exec ts-node src/index.ts"
   },
   "author": "",
