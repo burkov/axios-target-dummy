@@ -1,13 +1,19 @@
 import express from 'express';
 import { RouteParams } from './dto';
+import joi from '@hapi/joi';
 
 const router = express.Router();
 
 router.post<RouteParams>('/:status(\\d{3})/:shape(valid|malformed)', (req, res) => {
-  const { status, shape } = req.params;
-  const parsedStatus = parseInt(status, 10);
-  const isSucess = parsedStatus >= 200 && parsedStatus <= 400;
-  res.status(parsedStatus);
+  const { status, shape } = joi.attempt(
+    req.params,
+    joi.object().keys({
+      status: joi.number().min(100).max(999),
+      shape: joi.string().valid('malformed', 'valid'),
+    }),
+  );
+  const isSucess = status >= 200 && status <= 400;
+  res.status(status);
   if (shape === 'malformed') {
     res.send('malformed body');
     return;
