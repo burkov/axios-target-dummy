@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import probeRouter from './responseProbe';
+import probeRouter from './probe';
 
 const app = express();
 
