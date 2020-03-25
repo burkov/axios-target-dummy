@@ -20,12 +20,12 @@ export enum ManageOperationId {
   RequestActivationCodes = 'RequestActivationCodes',
 }
 
-router.post('/manage', (req, res) => {
-  const result = _.map(Object.keys(ManageOperationId), (id: string) => ({
+router.post('/operations', (req, res) => {
+  const manageOperations = _.map(Object.keys(ManageOperationId), (id: string) => ({
     operationId: id,
     assetDataIds: [1, 2],
   }));
-  res.send({ result });
+  res.send({ result: { manageOperations } });
 });
 
 export default router;
