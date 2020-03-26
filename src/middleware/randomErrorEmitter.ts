@@ -2,6 +2,7 @@ import { Request, RequestHandler } from 'express';
 import _ from 'lodash';
 import { JPFError, JPFResponse } from '../routes/Models';
 import Joi from '@hapi/joi';
+import log from 'loglevel';
 
 type ErrorRate = {
   urlRegexp: RegExp;
@@ -18,7 +19,7 @@ const validateRates = (rates: ErrorRates) => {
       //@ts-ignore type definition is outdated, .regex() exists in 17.1.1
       urlRegexp: Joi.object().regex(),
       probability: Joi.number().min(0).max(100),
-      producer: Joi.function().arity(1),
+      errorsFunc: Joi.function().maxArity(1),
       status: Joi.number().min(100).max(999).optional(),
     }),
   );
