@@ -1,8 +1,8 @@
 import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import probeRouter from './routes/probe';
-import assetsRouter from './routes/assets';
+import probeRouter from './routes/sales/probe';
+import assetsRouter from './routes/sales/assets';
 import delay from 'express-delay';
 
 const app = express();

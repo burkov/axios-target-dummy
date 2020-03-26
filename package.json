@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "reformat": "prettier --write \"./**/*.{ts,tsx,js,jsx,json}\"",
+    "prettier": "prettier --write \"./**/*.{ts,tsx,js,jsx,json}\"",
     "start": "nodemon --config nodemon.json"
   },
   "author": "",
