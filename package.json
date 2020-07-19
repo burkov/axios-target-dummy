@@ -14,7 +14,7 @@
     "express-delay": "^0.2.0",
     "faker": "^4.1.0",
     "helmet": "^3.22.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "loglevel": "^1.6.7",
     "morgan": "^1.10.0"
   },
